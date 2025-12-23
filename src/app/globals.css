@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *, [data-theme="dark"], [data-theme="dark"] *));
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --glass: 255, 255, 255, 0.7;
+    --glass-border: 0, 0, 0, 0.05;
+  }
+
+  /* Force dark variables when .dark class is present */
+  .dark,
+  [data-theme="dark"] {
+    --background: 222.2 84% 4.9% !important;
+    --foreground: 210 40% 98% !important;
+    --glass: 15, 23, 42, 0.7;
+    --glass-border: 255, 255, 255, 0.1;
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    @apply antialiased selection:bg-primary/20;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+@theme {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-primary: #0d9488;
+  --color-primary-foreground: #ffffff;
+
+  --color-secondary: #f1f5f9;
+  --color-secondary-foreground: #475569;
+
+  --color-accent: #0ea5e9;
+  --color-accent-foreground: #ffffff;
+
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+
+  --color-glass: rgba(var(--glass));
+  --color-glass-border: rgba(var(--glass-border));
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-glass backdrop-blur-xl border border-glass-border shadow-sm;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
