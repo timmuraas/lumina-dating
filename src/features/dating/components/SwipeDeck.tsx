@@ -8,7 +8,7 @@ import { SwipeCard } from './SwipeCard';
 import { MatchOverlay } from './MatchOverlay';
 import { useRouter } from 'next/navigation';
 
-import { MOCK_PROFILES } from '@/lib/mock';
+import { MOCK_PROFILES } from '@/lib/mockData';
 
 export const SwipeDeck = () => {
     const [profiles, setProfiles] = useState(() => [...MOCK_PROFILES].sort(() => Math.random() - 0.5));

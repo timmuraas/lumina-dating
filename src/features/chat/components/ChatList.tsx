@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Heart, Search, MoreHorizontal, User } from 'lucide-react';
 import { Profile } from '@/types';
-import { MOCK_PROFILES } from '@/lib/mock';
+import { MOCK_PROFILES } from '@/lib/mockData';
 import { useUserStore } from '@/store/useUserStore';
 import { translations } from '@/lib/translations';
 import { cn } from '@/lib/utils';
